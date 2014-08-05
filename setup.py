@@ -4,7 +4,7 @@ import sys, os
 version = '0.1'
 
 setup(
-    name='ckanext-reegletagging',
+    name='ckanext-climate-tagger',
     version=version,
     description="Reegle Tagging API extension for CKAN.",
     long_description='''
@@ -25,6 +25,6 @@ setup(
     entry_points=\
     """
     [ckan.plugins]
-    reegle_tagging_api=ckanext.reegletagging.plugin:ReegleTaggingApiPlugin
+    climate_tagger=ckanext.reegletagging.plugin:ReegleTaggingApiPlugin
 """,
 )

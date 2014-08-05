@@ -14,11 +14,19 @@ Fork or download this repository and install into the appropriate CKAN extension
 git clone https://github.com/REEEP/ckanext-climate-tagger.git
 ```
 
-Enable the extension by running the **setup.py**:
+To enable the extension, first activate your CKAN virtualenv:
 ```bash
+$ . /usr/lib/ckan/default/bin/activate
+```
+
+Then cd into the extension's top-level directory and run **setup.py**:
+```bash
+(pyenv)$ cd /usr/lib/ckan/default/src/ckanext-climate-tagger
 (pyenv)$ python setup.py develop
 ```
   *(once configured, you may wish to run `python setup.py install` for production environments)*
+
+And lastly, enable the plugin by adding climate_tagger to ckan.plugins in your CKAN config file, usually development.ini on production.ini in /etc/ckan/default.
 
 More information on extending CKAN available at http://docs.ckan.org/en/latest/extensions/tutorial.html. 
 
