@@ -6,25 +6,37 @@ The reegle Climate Tagger CKAN Extension provides suggested tags for climate com
 More information about the tagging API can be found at http://api.reegle.info.
 
 
-Install and Configure
----------------------
+Install
+-------
 
-To configure the API, you'll need to do the following:
+Fork or download this repository and install into the appropriate CKAN extensions directory. Traditionally, this is at **/usr/lib/ckan/default/src/**.
+```
+git clone https://github.com/REEEP/ckanext-climate-tagger.git
+```
 
-1. Fork or download this repository and install into the appropriate CKAN extensions directory. Traditionally, this is at **/usr/lib/ckan/default/src/**.
+Enable the extension by running the **setup.py**:
+```bash
+(pyenv)$ python setup.py develop
+```
+  *(once configured, you may wish to run `python setup.py install` for production environments)*
+
+More information on extending CKAN available at http://docs.ckan.org/en/latest/extensions/tutorial.html. 
+
+Configure
+---------
+
 1. Register for a key at http://api.reegle.info/register.
-1. Configure the extension by adding your API key to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
-  * Testing code block markdown bug fix: 
+2. Configure the extension by adding your API key to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
+
 ```js
 var reegle = {
   apiUrl: 'http://api.reegle.info/service/extract',
   authToken: 'your-auth-token-here!!'
 };
 ```
-1. Enable the extension by running the *setup.py*:
-```bash
-(pyenv)$ python setup.py install
-```
 
+License
+-------
 
-More information on extending CKAN available at http://docs.ckan.org/en/latest/extensions/tutorial.html. 
+[CC0 1.0 universal](http://creativecommons.org/publicdomain/zero/1.0/)
+
