@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/reegletagging/__init__.py
+ckanext/reegletagging/plugin.py
+ckanext_reegletagging.egg-info/PKG-INFO
+ckanext_reegletagging.egg-info/SOURCES.txt
+ckanext_reegletagging.egg-info/dependency_links.txt
+ckanext_reegletagging.egg-info/entry_points.txt
+ckanext_reegletagging.egg-info/namespace_packages.txt
+ckanext_reegletagging.egg-info/not-zip-safe
+ckanext_reegletagging.egg-info/top_level.txt

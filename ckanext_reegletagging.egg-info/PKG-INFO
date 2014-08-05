@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: ckanext-reegletagging
+Version: 0.1
+Summary: Reegle Tagging API extension for CKAN.
+Home-page: http://en.openei.org
+Author: Jay Huggins
+Author-email: jay.huggins@nrel.gov
+License: Creative Commons CCZero
+Description: 
+            
+Platform: UNKNOWN

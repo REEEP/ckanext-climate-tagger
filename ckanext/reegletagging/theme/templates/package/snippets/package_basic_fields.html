@@ -1,0 +1,7 @@
+{% ckan_extends %}
+
+{% block package_basic_fields_tags %}
+  <!-- reegle package_basic_fields_tags -->
+  {% resource 'ckanext-reegletagging/main' %}
+  {{ super() }}
+{% endblock %}

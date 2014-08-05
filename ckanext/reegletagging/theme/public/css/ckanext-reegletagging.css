@@ -1,0 +1,74 @@
+/**
+ * reegle Climate Tagger CKAN Extension css
+ * @author jweers
+ * @collaborator United Nations Energy Partnership (UNEP) 
+ * @collaborator U.S. National Renewable Energy Laboratory (NREL)
+ * @collaborator Renewable Energy and Energy Efficiency Partnership (REEEP)
+ * @license Creative Commons CC-Zero
+ */ 
+
+/* override select2 styles to match reegle styles */
+#reegleTagsContainer,
+.controls .select2-container-multi .select2-choices {
+  background: white;
+  box-shadow: 1px 1px 3px -2px gray inset;
+}
+
+#reegleTagsContainer {
+  border: 1px solid #ccc;
+  border-radius: 3px 3px 0 0;
+  padding: 0 3px;
+  min-height: 26px;
+  overflow: hidden;
+}
+
+.reegle-info-block {
+  display: block;
+  padding: 4px 10px;
+  background: #ebebeb;
+  border: 1px solid #cccccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  font-size: 11px;
+  line-height: 17px;
+  color: #282828;
+  margin-top: -1px;
+}
+
+.reegle-info-block img {
+  vertical-align: sub;
+}
+
+.reegle-tag {
+  display: inline-block;
+  font-size: 14px;
+  padding: 2px 6px;
+  margin: 5px 2px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #e4e4e4;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eee));
+  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+}
+
+.reegle-tag {
+  opacity: 0.8;
+  transition: opacity 0.13s;
+}
+
+.reegle-tag a.reegle-add-tag-btn {
+  color: #33ad1d;
+  font-weight: bold;
+  margin-right: 7px;
+}
+
+a.reegle-add-tag-btn:hover {
+  text-decoration: none;
+}
+
+.reegle-tag:hover {
+  cursor: pointer;
+  opacity: 1;
+}
