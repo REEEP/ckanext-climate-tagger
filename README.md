@@ -14,7 +14,7 @@ To configure the API, you'll need to do the following:
 1. Fork or download this repository and install into the appropriate CKAN extensions directory. Traditionally, this is at **/usr/lib/ckan/default/src/**.
 1. Register for a key at http://api.reegle.info/register.
 1. Configure the extension by adding your API key to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
-* Testing code block markdown bug fix: 
+  * Testing code block markdown bug fix: 
 ```js
 var reegle = {
   apiUrl: 'http://api.reegle.info/service/extract',
