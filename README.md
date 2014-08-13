@@ -3,6 +3,8 @@ ckanext-climate-tagger
 
 The reegle Climate Tagger CKAN Extension provides suggested tags for climate compatible content (for CKAN) by introducing an additional field to the add/edit resource form that displays suggested tags for reegles Tagging API.
 
+Current status: **alpha** (under development)
+
 More information about the tagging API can be found at http://api.reegle.info.
 
 
