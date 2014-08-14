@@ -85,62 +85,61 @@ function reegle_suggestTags(title, desc){
     text: desc
   };
   
-  /*
   //Fetch the tags from the API
   $.ajax({
     url: reegle.apiUrl,
     type:"POST",
     xhrFields: {
-      withCredentials: true
-    }
+      withCredentials: false
+    },
     dataType: 'json',
     data: params,
     success: function(response){
-      console.log(response);
       /*
-      //Remove loading sign
+      //Remove loading sign (TODO: need to have one first)
       $loadingRow.remove();
-      
+      */ 
       if (response.error){
-        showSubmissionsListAlert('Error: ' + response.error);
+        showReegleAlert('Error: ' + response.error);
         return;
       }
-      if (!response.result){
-        showSubmissionsListAlert('Something went wrong! Unable to list submissions.');
+      if (!response.concepts || !response.terms){
+        showReegleAlert('Something went wrong! Unable to suggest tags');
         return;
       }
-      if (response.result.length == 0){
-        showSubmissionsListAlert('No submissions found.');
+      //Assemble tags
+      var tags = [];
+      for (c in response.concepts){
+        tags.push(response.concepts[c].prefLabel);
+      }
+      for (t in response.terms){
+        tags.push(response.terms[t].label);
+      }
+
+      //Handle null results
+      if (tags.length == 0){
+        showReegleAlert('No suggested tags');
         return;
       }
 
       //Display results
-      for (i in response.result){
-        var sub = response.result[i];
-        displaySubmission(sub);
+      for (i in tags){
+        reegle_suggestTag(tags[i]);
       }
-      *//*
-    }
-  });
-  */
-  //Fetch the tags (sub ajax placeholder)
-  var tags = ['Energy','Climate','Science','Hardcoded example'];
-  
-  //Populate them
-  for (i in tags){
-    reegle_suggestTag(tags[i]);
-  }
-  
-  //Initiate controls
-  $('a.reegle-add-tag-btn').click(function(e){
-    e.preventDefault();
-  });
-  $('.reegle-tag').click(function(){
-    var tag = $(this).find('.reegle-tag-value').text();
-    $(this).fadeOut(150, function(){
-      reegle_addTag(tag);  
-    });
-  });
+
+
+      //Initiate controls
+      $('a.reegle-add-tag-btn').click(function(e){
+        e.preventDefault();
+      });
+      $('.reegle-tag').click(function(){
+        var tag = $(this).find('.reegle-tag-value').text();
+        $(this).fadeOut(150, function(){
+          reegle_addTag(tag);  
+        });
+      });
+    } //end ajax success
+  }); //end ajax
 }
 
 function reegle_suggestTag(str){
