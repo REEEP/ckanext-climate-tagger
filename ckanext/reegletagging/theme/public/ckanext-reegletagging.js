@@ -158,8 +158,20 @@ function reegle_addTag(str){
   $('#field-tags').select2('val',tags);
 }
 
+/**
+ * removes markdown syntax from fields that support it, like description
+ * CKAN uses Daring Fireball markdown: http://daringfireball.net/projects/markdown/syntax
+ * @param str multi-line string to be cleansed
+ * @return string
+ */
 function reegle_stripMarkdown(str){
-  //TODO: Strip out markdown for better results?
+  if (!str){
+    return '';
+  }
+  //Remove blockquotes, bullets and headers
+  str = str.replace(/^[i*+\-#=>]+ ?/mg,'');
+  //Remove bolds and italics
+  str = str.replace(/[*_]+([\w ]+)[*_]+/g,'$1');
   return str;
 }
 
