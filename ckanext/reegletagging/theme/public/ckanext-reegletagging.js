@@ -39,6 +39,12 @@ $(document).ready(function(){
 /*
  * Supporting Functions
  */
+
+/**
+ * Assembles the custom input field which will eventually house the tags
+ *  suggested by the reegle Tagging API, and initiates suggestion
+ * @return null
+ */
 function reegle_loadExtension(){
   reegle.container = $('<div id="reegleTagsContainer"></div>');
   var $tagsField = $('#field-tags');
@@ -73,6 +79,14 @@ function reegle_loadExtension(){
   }
 }
 
+/**
+ * Passes the contents of the title and description to the reegle Tagging API, 
+ *  then processes the returned response into a list of strings and displays
+ *  them as suggested tags in a custom input field attached to the resource form.
+ * @param title string title of the resource
+ * @param desc string resource description
+ * @return null
+ */
 function reegle_suggestTags(title, desc){
   desc = reegle_stripMarkdown(desc);
   var params = {
@@ -142,6 +156,12 @@ function reegle_suggestTags(title, desc){
   }); //end ajax
 }
 
+/**
+ * Adds the supplied string to the suggested tags list in
+ *  the input field created by this extension
+ * @param str string tag to be suggested
+ * @return null
+ */
 function reegle_suggestTag(str){
   $('<span class="reegle-tag"></span>')
     .append('<a href="#" class="reegle-add-tag-btn">+</a>')
@@ -149,6 +169,12 @@ function reegle_suggestTag(str){
     .appendTo(reegle.container);
 }
 
+/**
+ * Adds the supplied string as a tag to the "select2" tags field
+ * @dependency current "select2" tags mechanism
+ * @param str string tag to be added
+ * @return null
+ */
 function reegle_addTag(str){
   if (str == undefined || trim(str) == ''){
     return;
