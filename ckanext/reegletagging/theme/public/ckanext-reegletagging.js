@@ -46,7 +46,7 @@ $(document).ready(function(){
  * @return null
  */
 function reegle_loadExtension(){
-  reegle.container = $('<div id="reegleTagsContainer"></div>');
+  reegle.container = $('<div id="reegleTagsContainer">Loading...</div>');
   var $tagsField = $('#field-tags');
   
   //Create suggested tags field group
@@ -109,16 +109,12 @@ function reegle_suggestTags(title, desc){
     dataType: 'json',
     data: params,
     success: function(response){
-      /*
-      //Remove loading sign (TODO: need to have one first)
-      $loadingRow.remove();
-      */ 
       if (response.error){
-        showReegleAlert('Error: ' + response.error);
+        reegle_showAlert('Error: ' + response.error);
         return;
       }
       if (!response.concepts || !response.terms){
-        showReegleAlert('Something went wrong! Unable to suggest tags');
+        reegle_showAlert('Something went wrong! Unable to suggest tags');
         return;
       }
       //Assemble tags
@@ -132,11 +128,12 @@ function reegle_suggestTags(title, desc){
 
       //Handle null results
       if (tags.length == 0){
-        showReegleAlert('No suggested tags');
+        reegle_showAlert('No suggested tags');
         return;
       }
 
       //Display results
+      reegle.container.empty();
       for (i in tags){
         reegle_suggestTag(tags[i]);
       }
@@ -201,6 +198,14 @@ function reegle_stripMarkdown(str){
   return str;
 }
 
+/**
+ * Display reegle API error message
+ * @param str error message
+ * @return null
+ */
+function reegle_showAlert(str){
+  reegle.container.html('<small class="text-error">' + str + '</small>');
+}
 
 /**
  * Trim whitespace from a string.
