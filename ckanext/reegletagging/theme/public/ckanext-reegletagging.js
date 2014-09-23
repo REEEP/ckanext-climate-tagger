@@ -6,8 +6,8 @@
  * @collaborator Renewable Energy and Energy Efficiency Partnership (REEEP)
  * @license Creative Commons CC-Zero
  * 
- * @requires reegle Tagging API Key
- * - You must procure your own key and add it to the config section below!
+ * @requires reegle Tagging API Token
+ * - You must procure your own API token and add it to the config section below!
  */
 
 
@@ -17,10 +17,32 @@
  */
 var reegle = {
   apiUrl: 'http://api.reegle.info/service/extract',
-  minimumContentLength: 2,    // = 1 character in each field
-  locale: 'en',               //Language
-  countConcepts: 9,           //Number of concepts returned by the API
-  countTerms: 9,              //Number of terms returned by the API
+  /* 
+   * minimumContentLength: Content passed to the API is currently pulled from two fields.
+   * A minimumContentLength of 2 assumes at least 1 character in each field
+   * before attempting to pass the content to the API
+   */
+  minimumContentLength: 2,
+  /* 
+   * locale: The language used for API results 
+   */
+  locale: 'en',
+  /*
+   * countConcepts: The max number of semantic concepts to be returned by the API.
+   * Concepts are known terms within the reegle Thesaurus matched to provided content.
+   */
+  countConcepts: 9,
+  /*
+   * countTerms: The max number of free-text terms to be returned by the API.
+   * Terms are seemingly important pieces of text extracted from the content through
+   * natural language analysis.  They do not match up with known concepts.
+   * Set to 0 to avoid returning terms.
+   */
+  countTerms: 9,
+  /*
+   * authToken: your personal reegle API token.  You must procure this from the reegle API
+   * site at http://api.reegle.info
+   */
   authToken: 'your-auth-token-here!'
 };
 

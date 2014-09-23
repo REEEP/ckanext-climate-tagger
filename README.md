@@ -35,8 +35,8 @@ More information on extending CKAN available at http://docs.ckan.org/en/latest/e
 Configure
 ---------
 
-1. Register for a key at http://api.reegle.info/register.
-2. Configure the extension by adding your API key to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
+1. Register for an API token at http://api.reegle.info/register.
+2. Configure the extension by adding your API token to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
 
 ```js
 var reegle = {
