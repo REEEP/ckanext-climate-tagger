@@ -30,13 +30,17 @@ Then cd into the extension's top-level directory and run **setup.py**:
 
 And lastly, enable the plugin by adding climate_tagger to ckan.plugins in your CKAN config file, usually development.ini on production.ini in /etc/ckan/default.
 
+```
+ckan.plugins = stats text_view recline_view ... climate_tagger
+```
 More information on extending CKAN available at http://docs.ckan.org/en/latest/extensions/tutorial.html. 
 
 Configure
 ---------
 
-1. Register for an API token at http://api.reegle.info/register.
-2. Configure the extension by adding your API token to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
+1. Create a free account at http://api.reegle.info/register.
+2. Register an API token at http://api.reegle.info/dashboard/sources.
+3. Configure the extension by adding your API token to the configure options in **ckanext-climate-tagger/ckanext/reegletagging/theme/public/ckanext-reegle-tagging.js** like so:
 
 ```js
 var reegle = {
